@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   let sql = 'SELECT * FROM team_principles ';
   db.query(sql, function (err, result) {
     if (err) throw err;
-    res.send(result);
+    res.json(result);
   });
 });
 
@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
   db.query(sql, req.params.id, function (err, result) {
     //jgn lupa req.params.id
     if (err) throw err;
-    res.send(result);
+    res.json(result);
   });
 });
 
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
   db.query(sql, params, function (err, result) {
     //jgn lupa params
     if (err) throw err;
-    res.send({ msg: 'new team principles has been added', result });
+    res.json({ msg: 'new team principles has been added', result });
   });
 });
 
@@ -39,7 +39,10 @@ router.put('/:id', (req, res) => {
   let sql = 'UPDATE team_principles SET name=?,phone=?,email=? WHERE id=?'; //gak bisa salah satu yg diisi, kudu diisi seua valuenya
   db.query(sql, [name, phone, email, id], function (err, result) {
     if (err) throw err;
-    res.send(result);
+    res.json({
+      msg: `team principal by id of &{req.params.id} has been changed`,
+      result,
+    });
   });
 });
 
