@@ -10,4 +10,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  let sql = 'SELECT * FROM team_principles WHERE id = ?';
+  db.query(sql, req.params.id, function (err, result) {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 module.exports = router;
