@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   let sql = 'SELECT * FROM team_principles ';
   db.query(sql, function (err, result) {
     if (err) throw err;
-    console.log(result);
+    res.send(result);
   });
 });
 
