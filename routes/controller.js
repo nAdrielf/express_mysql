@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
   });
 });
 
+// kl misal nama team principalnya diganti, otomatis hp dan nomor telepon diganti
 router.put('/:id', (req, res) => {
   //kenalin dulu variabel yg mau diganti dengan req.body
   let id = req.body.id;
