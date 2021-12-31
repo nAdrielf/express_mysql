@@ -40,7 +40,7 @@ router.put('/:id', (req, res) => {
   db.query(sql, [name, phone, email, id], function (err, result) {
     if (err) throw err;
     res.json({
-      msg: `team principal by id of &{req.params.id} has been changed`,
+      msg: `team principal by id of ${req.params.id} has been changed`,
       result,
     });
   });
