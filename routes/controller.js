@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
   db.query(sql, params, function (err, result) {
     //jgn lupa params
     if (err) throw err;
-    res.json({ msg: 'new team principles has been added', result });
+    res.json({ msg: 'new team has been added', result });
   });
 });
 
